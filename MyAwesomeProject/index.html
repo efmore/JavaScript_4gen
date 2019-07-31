@@ -11,11 +11,73 @@
 
   <script>
     //console.log('Hola Mundo')
-    var age = prompt('What is your age?')
+
+    //ejercicio 1
+    //calcular tu edad en días
+    var age = prompt('Cuál es tu edad?')
     var age_in_months = age * 12
     var age_in_days = age * 12 * 30
     console.log('Your age in months is '+age_in_months)
     console.log('Your age in days is '+age_in_days)
+
+    //ejercicio 2
+    //memoria usb de 4gb, cuántas fotos de 3mb le caben?
+    var tamanho_usb = prompt('De cuántos GB es tu usb?')
+    var tamanho_usb_mb = tamanho_usb * 1024
+    var tamanho_fotos_mb = 3
+    var fotos_en_usb= tamanho_usb_mb / tamanho_fotos
+    console.log('En tu usb puedes meter '+fotos_en_usb+' fotos')
+
+    //ejercicio 3
+    //estacionamiento 22 cubículos, cada cubículo 3 carros y 2 camionetas
+    //57 camionetas
+    //130 carros
+    //cuántos cubículos llenamos?
+    //cuántos carros sobran?
+    //cuántas camionetas sobran?
+    var cubiculos=  22
+    var carros_por_cubiculo  = 3
+    var camionetas_por_cubiculo = 2
+    var carros_actual = prompt('Cuántos carros vas a ingresar?')
+    var camionetas_actual = prompt('Cuántas camionetas vas a ingresar?')
+    var carros_restantes1 = carros_actual % carros_por_cubiculo
+    var camionetas_restantes1 = camionetas_actual % camionetas_por_cubiculo
+    var cubiculos_carros = (carros_actual / carros_por_cubiculo) - (carros_restantes1)
+    var cubiculos_camionetas  = (camionetas_actual / camionetas_por_cubiculo) - (camionetas_restantes1)
+    
+    //obtener cubiculos completos llenos
+    function cubiculos_llenos_f () {
+      if( cubiculos_carros <=  cubiculos_camionetas) {
+        console.log('Cubiculos llenos fueron '+ cubiculos_camionetas)
+      } else {
+        console.log('Cubiculos llenos fueron '+ cubiculos_carros)
+      }
+    }
+
+    //obtener carros restantes
+    function carros_restantes_f () {
+      if( cubiculos_carros <= cubiculos_camionetas)  {
+        console.log('No quedó ningún carro solito');        
+      } else {
+          var carros_restantes2 = (cubiculos_camionetas - cubiculos_carros) * carros_por_cubiculo
+          console.log('Quedaron restantes '+carros_restantes2+' carros');
+      }
+    }
+
+    //obtener camionetas restantes
+    function camionetas_restantes_f () {
+      if( cubiculos_carros <= cubiculos_camionetas)  {
+        var camionetas_restantes2 = (cubiculos_camionetas - cubiculos_carros) * camionetas_por_cubiculo
+        console.log('Quedaron restantes '+camionetas_restantes2+' camionetas');
+      } else {
+          console.log('No quedó ninguna camioneta solita');   
+      }
+    }
+
+    cubiculos_llenos_f()
+    carros_restantes_f()
+    camionetas_restantes_f()
+
   </script>
   
   <script src="js/main.js"></script>
