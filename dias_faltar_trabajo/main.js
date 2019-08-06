@@ -19,7 +19,15 @@ for (let employeesIndex = 0; employeesIndex < employees.length; employeesIndex++
   let totalDiscountPer = currentEmployeeDays * DISCOUNT
   let totalDiscountSal = totalDiscountPer * DAILY_SALARY
   let totalSalaryMonth = (DAILY_SALARY*30) - totalDiscountSal
-  console.log(`${currentEmployeeName} is gonna have a $${totalDiscountSal}.00 discount`)
-  console.log(`So his/her monthly salary is gonna be $${totalSalaryMonth}.00`)
+  console.log(`${currentEmployeeName} is gonna have a ${totalDiscountSal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}discount`)
+  console.log(`So his/her monthly salary is gonna be ${totalSalaryMonth.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
 }
 
+for (let index in employees) {
+  let worker = employees[index]
+  let totalDiscountPer = worker[1] * DISCOUNT
+  let totalDiscountSal = totalDiscountPer * DAILY_SALARY
+  let totalSalaryMonth = (DAILY_SALARY*30) - totalDiscountSal
+  console.log(`${worker[0]} is gonna have a ${totalDiscountSal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} discount`)
+  console.log(`So his/her monthly salary is gonna be ${totalSalaryMonth.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
+}
