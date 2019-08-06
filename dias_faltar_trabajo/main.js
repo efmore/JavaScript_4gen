@@ -13,14 +13,18 @@ var employees = [
   ['Jose' , 12]
 ]
 
+function currency_format (currency_variable) {
+  return new Intl.NumberFormat('pt-BR',{ style: 'currency', currency: 'BRL'}).format(currency_variable)
+}
+
 for (let employeesIndex = 0; employeesIndex < employees.length; employeesIndex++) {
   let currentEmployeeDays = employees[employeesIndex][1]
   let currentEmployeeName = employees[employeesIndex][0]
   let totalDiscountPer = currentEmployeeDays * DISCOUNT
   let totalDiscountSal = totalDiscountPer * DAILY_SALARY
   let totalSalaryMonth = (DAILY_SALARY*30) - totalDiscountSal
-  console.log(`${currentEmployeeName} is gonna have a ${totalDiscountSal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}discount`)
-  console.log(`So his/her monthly salary is gonna be ${totalSalaryMonth.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
+  console.log(`${currentEmployeeName} is gonna have a ${currency_format(totalDiscountSal)} discount`)
+  console.log(`So his/her monthly salary is gonna be ${currency_format(totalSalaryMonth)}`)
 }
 
 for (let index in employees) {
