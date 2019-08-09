@@ -5,7 +5,9 @@ var words = ['alugel', 'beleza', 'Antofagasta', 'cquimbo', 'Risotto', 'aleluia']
 numbers.forEach((item, index, array) => console.log(item, index, array))
 
 // return numbers odd or even
-numbers.forEach((item) => { (item % 2 === 0) ? console.log(`${item} is even`) : console.log(`${item} is odd`)})
+numbers.forEach((item) => {
+ (item % 2 === 0) ? console.log(`${item} is even`) : console.log(`${item} is odd`)
+})
 
 // return array of elements %5
 numbers2.filter(item => item % 5 === 0)
